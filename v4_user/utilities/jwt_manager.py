@@ -4,14 +4,15 @@ from ..schemas import Token
 from fastapi import HTTPException, status, Depends
 from fastapi.security import OAuth2PasswordBearer
 from datetime import datetime, timedelta
+from ..config import settings
 
 #Instantiate Oauth2 feature and foward consumer to the /auth endpoint
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="/auth")
 
 # openssl rand -hex 32
-SERVER_KEY = "509c35c95d1bbb78083d592fa0141beff57c233e4fff7e6d825de7bb0a1220b3"
-ALGORITHM = "HS256"
-EXPIRATION_MINUTES = 30 #token expiration time 30minutes
+SERVER_KEY = settings.database_key
+ALGORITHM = settings.algorithm
+EXPIRATION_MINUTES = settings.exparation_minutes #token expiration time 30minutes
 
 #function generate token
 def generate_token(id: int):

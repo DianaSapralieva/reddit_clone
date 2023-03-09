@@ -1,8 +1,9 @@
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
+from config import settings
 
 # Database URL (Bad practice to put it here)
-DATABASE_URL = "postgresql://postgres:API@localhost/reddit_clone_orm"
+DATABASE_URL = f"postgresql://{settings.database_name}:{settings.database_password}@{settings.database_host}/{settings.database_name}"
 
 #Running engine for ORM translation (python to SQL)
 database_engine = create_engine(DATABASE_URL)
