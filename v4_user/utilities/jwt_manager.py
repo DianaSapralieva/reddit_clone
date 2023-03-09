@@ -10,9 +10,9 @@ from ..config import settings
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="/auth")
 
 # openssl rand -hex 32
-SERVER_KEY = settings.database_key
+SERVER_KEY = settings.server_key
 ALGORITHM = settings.algorithm
-EXPIRATION_MINUTES = settings.exparation_minutes #token expiration time 30minutes
+EXPIRATION_MINUTES = settings.expiration_minutes #token expiration time 30minutes
 
 #function generate token
 def generate_token(id: int):

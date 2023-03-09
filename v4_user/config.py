@@ -1,16 +1,16 @@
 from pydantic import BaseSettings
 
-class Settigs(BaseSettings):
+class Settings(BaseSettings):
     database_host:str
-    database_port:str
+    database_post:str
     database_username:str
     database_password:str
     database_name:str
-    database_key:str
+    server_key:str
     algorithm:str
-    exparation_minutes:int
+    expiration_minutes:int
 
     class Config:
         env_file=".env"
 
-settings=Settigs()        
+settings=Settings()        
